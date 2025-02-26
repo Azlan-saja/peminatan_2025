@@ -40,15 +40,15 @@ Tentukan lokasi install (contoh di local disk D) dan buka terminal CMD.
   composer install
 ```
 ```bash
-  cp .env.example .env
+  code .
 ```
+* Cari file .env.example
+* Ubah nama file tersebut menjadi .env
+
+
 ```bash
   php artisan key:generate
 ```
-```bash
-  code .
-``` 
-*Ubah settingan .env
 ```bash
   php artisan migrate
 ```
