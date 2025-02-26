@@ -45,6 +45,10 @@ Tentukan lokasi install (contoh di local disk D) dan buka terminal CMD.
 ```bash
   php artisan key:generate
 ```
+* sebelum "php artisan migrate" pastikan,
+1. Field table users (database) sudah disesuaikan, atau abaikan jika ikut default.
+    * lokasi database di database/migrations/0001_01_01_000000_create_users_table.php
+2. Buka XAMPP dan START MySQL (Apache tidak perlu di Start).
 ```bash
   php artisan migrate
 ```
