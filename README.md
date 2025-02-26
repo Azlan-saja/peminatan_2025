@@ -11,10 +11,6 @@ Pelan tapi pasti.
 	=> GIT 2.48.1
 	=> Node.js v22.14.0
 
-```bash
-  npm run deploy
-```
-
 
 ## Cek di terminal CMD
 
