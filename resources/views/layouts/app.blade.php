@@ -54,7 +54,7 @@
                         <div class="row flex-fill align-items-center">
                             <div class="col">
                                 <ul class="navbar-nav">
-                                    <li class="nav-item active">
+                                    <li class="nav-item {{request()->routeIs('dashboard') ? 'active' : '' }} ">
                                         <a class="nav-link" href="{{route('dashboard')}}" wire:navigate>
                                             <span class="nav-link-icon d-md-none d-lg-inline-block">
                                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
@@ -91,8 +91,8 @@
                                             </span>
                                         </a>
                                     </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="#" wire:navigate>
+                                    <li class="nav-item {{request()->routeIs('kelas') ? 'active' : '' }}">
+                                        <a class="nav-link" href="{{route('kelas')}}" wire:navigate>
                                             <span class="nav-link-icon d-md-none d-lg-inline-block">
                                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                                                     viewBox="0 0 24 24" fill="none" stroke="currentColor"
@@ -107,7 +107,7 @@
                                                 </svg>
                                             </span>
                                             <span class="nav-link-title">
-                                                Tes
+                                                Kelas
                                             </span>
                                         </a>
                                     </li>
