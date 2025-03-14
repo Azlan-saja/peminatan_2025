@@ -2,7 +2,7 @@
 
 <div class="alert alert-danger alert-dismissible" role="alert">
 
-    <div class="d-flex">
+    <div class="">
         <h4 class="alert-heading">Gagal</h4>
         <div class="alert-description">
             <ul class="alert-list">

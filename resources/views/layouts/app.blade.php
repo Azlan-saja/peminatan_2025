@@ -20,7 +20,7 @@
 
     </head>
 
-    <body class="body-marketing body-gradient">
+    <body class="body-marketing body-gradient overflow-y-scroll">
 
         <header class="navbar navbar-expand-lg  py-3 ">
             <div class="container">
@@ -140,7 +140,7 @@
 
         {{ $slot }}
 
-        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        {{-- <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script> --}}
     </body>
 
 </html>

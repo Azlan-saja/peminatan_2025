@@ -4,16 +4,17 @@ namespace App\Livewire;
 
 use Livewire\Component;
 use App\Models\Kelas as ModelKelas;
+use Jantinnerezo\LivewireAlert\Enums\Position;
 use Livewire\Attributes\Locked;
 use Livewire\Attributes\Validate;
-use Livewire\Features\SupportPagination\WithoutUrlPagination;
 use Livewire\WithPagination;
 use Jantinnerezo\LivewireAlert\Facades\LivewireAlert;
 use Livewire\Attributes\On;
+use Livewire\Features\SupportPagination\WithoutUrlPagination;
 
 class Kelas extends Component
 {
-    use WithPagination;
+    use WithPagination, WithoutUrlPagination;
 
     #[Locked]
     public $kelasID;
@@ -25,6 +26,23 @@ class Kelas extends Component
 
     public $query;
 
+    public function updatedQuery()
+    {
+        // $this->reset();
+        $this->resetExcept(['query']);
+    }
+
+    private function pesanOK($pesan)
+    {
+
+        LivewireAlert::title($pesan)->success()
+            ->toast()->withOptions([
+                'timerProgressBar' => true,
+                'background' => '#22C55E',
+                'color' => "#FFFFFF",
+            ])->position(Position::TopEnd)->show();
+    }
+
     public function store()
     {
         $this->validate();
@@ -33,7 +51,7 @@ class Kelas extends Component
                 'nama' => $this->nama,
             ]);
             $this->refreshTable();
-            LivewireAlert::text('Simpan berhasil!')->success()->show();
+            $this->pesanOK('Simpan Berhasil');
         } catch (\Exception $e) {
             LivewireAlert::text("Server Sibuk")->error()->show();
             return;
@@ -41,11 +59,6 @@ class Kelas extends Component
     }
 
     #[On('ireset')]
-    public function ireset()
-    {
-        $this->reset();
-    }
-
     public function refreshTable()
     {
         $this->dispatch('close-modal', 'kelas');
@@ -74,7 +87,7 @@ class Kelas extends Component
             $kelas->update([
                 'nama' => $this->nama,
             ]);
-            LivewireAlert::text('Perubahan Berhasil Disimpan.')->success()->show();
+            $this->pesanOK('Perubahan Berhasil Disimpan.');
             $this->refreshTable();
         } catch (\Exception $e) {
             LivewireAlert::text("Server Sibuk")->error()->show();
@@ -103,7 +116,7 @@ class Kelas extends Component
             ModelKelas::where('id', $this->kelasID)
                 ->delete();
             $this->reset();
-            LivewireAlert::text('Hapus Berhasil')->success()->show();
+            $this->pesanOK('Hapus Berhasil.');
         } catch (\Exception $e) {
             LivewireAlert::text("Server Sibuk")->error()->show();
             return;
@@ -117,6 +130,7 @@ class Kelas extends Component
 
     public function render()
     {
+
         $kelass = ModelKelas::select([
             'id',
             'nama',
