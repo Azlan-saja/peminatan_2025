@@ -26,6 +26,11 @@ new #[Layout('layouts.guest')] class extends Component
 
 
 <div class="container container-tight py-4">
+
+    <x-slot name="judul">
+        Login
+    </x-slot>
+
     <div class="card card-md">
         <div class="card-body">
             <x-auth-session-status class="mb-4" :status="session('status')" />

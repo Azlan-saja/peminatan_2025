@@ -169,5 +169,6 @@ return [
     |
     */
 
-    'pagination_theme' => 'tailwind',
+    'pagination_theme' => 'bootstrap',
+    // 'pagination_theme' => 'tailwind',
 ];
